@@ -1,7 +1,9 @@
-export default function Index() {
+import Layout from "../components/Layout";
+
+export default () => {
   return (
     <>
-      <h3>Beranda</h3>
+      <h3>Ini isi halaman beranda</h3>
     </>
   );
-}
+};
