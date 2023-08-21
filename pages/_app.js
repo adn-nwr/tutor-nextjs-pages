@@ -1,9 +1,14 @@
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 
-export default function _App({ Component, pageProps }) {
-  return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  );
-}
+export default ({ Component, pageProps }) => {
+  const getLayout = Component.getLayout;
+  if (getLayout == undefined) {
+    return (
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    );
+  } else {
+    return getLayout();
+  }
+};

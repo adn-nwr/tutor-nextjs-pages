@@ -1,8 +1,23 @@
-export default () => {
+import Link from "next/link";
+
+export default function Navbar() {
   return (
     <>
       <h1>Beranda</h1>
-      <h2>Ini adalah navbar</h2>
+      <ul>
+        <li>
+          <Link href={"/"}>Halaman Utama</Link>
+        </li>
+        <li>
+          <Link href={"/tentang"}>Tentang</Link>
+        </li>
+        <li>
+          <Link href={"/pengaturan"}>Pengaturan</Link>
+        </li>
+        <li>
+          <Link href={"/login"}>Login Pengguna</Link>
+        </li>
+      </ul>
     </>
   );
-};
+}

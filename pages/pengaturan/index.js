@@ -1,7 +1,7 @@
 export default () => {
   return (
     <>
-      <p>Halaman Pengaturan Index</p>
+      <p>Isi Halaman Index Pengaturan</p>
     </>
   );
 };

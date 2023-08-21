@@ -1,7 +1,7 @@
-export default function Index() {
+export default () => {
   return (
     <>
-      <h3>Beranda</h3>
+      <h3>Ini isi halaman beranda-nya</h3>
     </>
   );
-}
+};

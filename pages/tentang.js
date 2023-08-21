@@ -1,7 +1,7 @@
-export default function Tentang() {
+export default () => {
   return (
     <>
-      <h3>File Tentang</h3>
+      <h3>Ini isi tentang</h3>
     </>
   );
-}
+};
