@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { useEffect } from "react";
 
-export default function Navbar() {
+export default function Navbar({ listBarang = [] }) {
   return (
     <>
       <h1>Beranda</h1>
@@ -28,12 +29,11 @@ export default function Navbar() {
         <li>
           <Link href="/artikel">Artikel</Link>
           <ul>
-            <li>
-              <Link href="/artikel/BSWABU40KG">40 KG</Link>
-            </li>
-            <li>
-              <Link href="/artikel/BSWABU50KG">50 KG</Link>
-            </li>
+            {listBarang.map((row, idx) => (
+              <li key={idx}>
+                <Link href={"/artikel/" + row.brgKode}>{row.brgNama}</Link>
+              </li>
+            ))}
           </ul>
         </li>
       </ul>

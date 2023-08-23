@@ -1,6 +1,6 @@
 import LayoutLogin from "../components/LayoutLogin";
 
-export default function login() {
+export default function Login() {
   return (
     <>
       <h3>Halaman Login disini</h3>

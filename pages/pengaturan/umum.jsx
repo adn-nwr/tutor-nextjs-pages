@@ -1,6 +1,6 @@
 import dbPool from "../../lib/db";
 
-export default ({ detailPengguna }) => {
+export default function Umum({ detailPengguna }) {
   return (
     <>
       <h3>Pengaturan Umum</h3>
@@ -13,7 +13,7 @@ export default ({ detailPengguna }) => {
       <hr />
     </>
   );
-};
+}
 
 export async function getStaticProps() {
   const [DATA] = await dbPool.query(

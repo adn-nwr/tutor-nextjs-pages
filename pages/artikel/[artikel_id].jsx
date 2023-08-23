@@ -1,7 +1,7 @@
 import dbPool from "../../lib/db";
 import { ambilListBarang } from "../../lib/barang";
 
-export default ({ detail_artikel }) => {
+export default function Artikel({ detail_artikel }) {
   return (
     <>
       <h3>Halaman Artikel</h3>
@@ -12,7 +12,7 @@ export default ({ detail_artikel }) => {
       <h4>Harga: {detail_artikel.brgHarga}</h4>
     </>
   );
-};
+}
 
 export async function getStaticPaths() {
   const DATA = await ambilListBarang();

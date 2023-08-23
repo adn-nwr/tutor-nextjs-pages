@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import dbPool from "../../lib/db";
 
-export default ({ listPengguna }) => {
+export default function Pengguna({ listPengguna }) {
   const router = useRouter();
   return (
     <>
@@ -16,7 +16,7 @@ export default ({ listPengguna }) => {
       <br />
     </>
   );
-};
+}
 
 export async function getServerSideProps() {
   const [DATA] = await dbPool.query(`SELECT * FROM sys_user LIMIT 5`);
