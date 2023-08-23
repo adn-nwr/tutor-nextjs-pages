@@ -25,6 +25,17 @@ export default function Navbar() {
         <li>
           <Link href="/login">Login Pengguna</Link>
         </li>
+        <li>
+          <Link href="/artikel">Artikel</Link>
+          <ul>
+            <li>
+              <Link href="/artikel/BSWABU40KG">40 KG</Link>
+            </li>
+            <li>
+              <Link href="/artikel/BSWABU50KG">50 KG</Link>
+            </li>
+          </ul>
+        </li>
       </ul>
     </>
   );

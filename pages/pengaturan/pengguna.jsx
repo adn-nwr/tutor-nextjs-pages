@@ -1,41 +1,46 @@
-export default ({ DATA }) => {
+import { useRouter } from "next/router";
+import dbPool from "../../lib/db";
+
+export default ({ listPengguna }) => {
+  const router = useRouter();
   return (
     <>
       <h3>Daftar Pengguna</h3>
-      <table border="1" cellPadding={2} cellSpacing={2}>
-        <thead>
-          <tr>
-            <th>userId</th>
-            <th>userNama</th>
-            <th>userLastLogin</th>
-          </tr>
-        </thead>
-        <tbody>
-          <PenggunaTBodyChildren listPengguna={DATA} />
-        </tbody>
-      </table>
+      <button onClick={() => router.reload()}>Refresh Halaman</button>
+      <button onClick={() => router.push("/pengaturan/pengguna")}>
+        Refresh Data
+      </button>
+      <br />
+      <br />
+      <TablePengguna listPengguna={listPengguna} />
+      <br />
     </>
   );
 };
 
 export async function getServerSideProps() {
-  const DATA = [
-    { userId: "adnan", userNama: "Adnan", userLastLogin: "2023-08-22 21:25" },
-    {
-      userId: "admin",
-      userNama: "Administrator",
-      userLastLogin: "2019-06-22 01:25",
-    },
-    {
-      userId: "auditjkt",
-      userNama: "Audit Jakarta",
-      userLastLogin: "2023-01-13 12:49",
-    },
-  ];
-  return { props: { DATA } };
+  const [DATA] = await dbPool.query(`SELECT * FROM sys_user LIMIT 5`);
+  return { props: { listPengguna: JSON.parse(JSON.stringify(DATA)) } };
 }
 
-function PenggunaTBodyChildren({ listPengguna }) {
+function TablePengguna({ listPengguna }) {
+  return (
+    <table border={1} cellPadding={2} cellSpacing={2}>
+      <thead>
+        <tr>
+          <th>userId</th>
+          <th>userNama</th>
+          <th>userLastLogin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <TableBodyPengguna listPengguna={listPengguna} />
+      </tbody>
+    </table>
+  );
+}
+
+function TableBodyPengguna({ listPengguna }) {
   if (listPengguna.length == 0)
     return (
       <tr>
