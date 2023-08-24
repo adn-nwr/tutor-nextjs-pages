@@ -8,6 +8,6 @@ export default function Login() {
   );
 }
 
-login.getLayout = function getLayout(page) {
+Login.getLayout = function getLayout(page) {
   return <LayoutLogin>{page}</LayoutLogin>;
 };

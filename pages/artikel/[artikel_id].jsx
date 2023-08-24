@@ -1,7 +1,18 @@
 import dbPool from "../../lib/db";
 import { ambilListBarang } from "../../lib/barang";
+import { useRouter } from "next/router";
 
-export default function Artikel({ detail_artikel }) {
+export default function Artikel({
+  detail_artikel = {
+    brgKode: null,
+    brgNama: null,
+    brgPaket: null,
+    brgSatuan: null,
+    brgHarga: null,
+  },
+}) {
+  const router = useRouter();
+  if (router.isFallback) return <div>Loading...</div>;
   return (
     <>
       <h3>Halaman Artikel</h3>
@@ -30,5 +41,6 @@ export async function getStaticProps({ params }) {
     props: {
       detail_artikel: DATA[0],
     },
+    revalidate: 60,
   };
 }

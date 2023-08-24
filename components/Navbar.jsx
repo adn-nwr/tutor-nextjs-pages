@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function Navbar({ listBarang = [] }) {
+  const router = useRouter();
   return (
     <>
       <h1>Beranda</h1>
@@ -34,6 +35,11 @@ export default function Navbar({ listBarang = [] }) {
                 <Link href={"/artikel/" + row.brgKode}>{row.brgNama}</Link>
               </li>
             ))}
+            <li key={-1}>
+              <button onClick={() => router.push("/artikel/BSWSAPUAN")}>
+                Semen Sapuan
+              </button>
+            </li>
           </ul>
         </li>
       </ul>
