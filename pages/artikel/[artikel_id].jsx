@@ -41,6 +41,6 @@ export async function getStaticProps({ params }) {
     props: {
       detail_artikel: DATA[0],
     },
-    revalidate: 60,
+    revalidate: 1,
   };
 }

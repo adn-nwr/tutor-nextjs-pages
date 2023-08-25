@@ -35,9 +35,16 @@ export default function Navbar({ listBarang = [] }) {
                 <Link href={"/artikel/" + row.brgKode}>{row.brgNama}</Link>
               </li>
             ))}
+            <Link href="/artikel/BSWSAPUAN">Semen Sapuan</Link>
             <li key={-1}>
               <button onClick={() => router.push("/artikel/BSWSAPUAN")}>
                 Semen Sapuan
+              </button>
+            </li>
+            <Link href="/halaman/sapuan">Halaman Sapuan</Link>
+            <li key={-2}>
+              <button onClick={() => router.push("/halaman/sapuan")}>
+                Halaman Sapuan
               </button>
             </li>
           </ul>
