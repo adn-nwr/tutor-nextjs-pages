@@ -1,9 +1,10 @@
 import dbPool from "../../lib/db";
+import styles from "../../styles/Umum.module.css";
 
 export default function Umum({ detailPengguna }) {
   return (
     <>
-      <h3>Pengaturan Umum</h3>
+      <h3 className={styles.ChartreuseOnBlueViolet}>Pengaturan Umum</h3>
       userId: {detailPengguna.userId}
       <br />
       userNama: {detailPengguna.userNama}

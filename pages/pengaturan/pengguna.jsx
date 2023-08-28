@@ -1,11 +1,12 @@
 import { useRouter } from "next/router";
 import dbPool from "../../lib/db";
+import styles from "../../styles/Pengguna.module.css";
 
 export default function Pengguna({ listPengguna }) {
   const router = useRouter();
   return (
     <>
-      <h3>Daftar Pengguna</h3>
+      <h3 className={styles.ChartreuseOnBlueViolet}>Daftar Pengguna</h3>
       <button onClick={() => router.reload()}>Refresh Halaman</button>
       <button onClick={() => router.push("/pengaturan/pengguna")}>
         Refresh Data
